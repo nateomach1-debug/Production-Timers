@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ProductionTimers</AssemblyName>
+    <RootNamespace>ProductionTimers</RootNamespace>
+    <Version>1.0.0</Version>
+    <EnableModDeploy>false</EnableModDeploy>
+    <EnableModZip>true</EnableModZip>
+    <ModFolderName>ProductionTimers</ModFolderName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Android modders' cross-platform build config; used by NRTnarathip's Android mod source tree. -->
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.2-casey" />
+  </ItemGroup>
+</Project>
