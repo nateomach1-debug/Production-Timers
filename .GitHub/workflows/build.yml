@@ -1,0 +1,34 @@
+name: Build Production Timers
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 6
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore
+        run: dotnet restore ProductionTimers.csproj
+
+      - name: Build release
+        run: dotnet build ProductionTimers.csproj --configuration Release --no-restore
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProductionTimers-build
+          path: |
+            bin/Release/net6.0/
+            bin/Release/*.zip
+            !bin/Release/net6.0
+            /*.pdb
