@@ -30,5 +30,4 @@ jobs:
           path: |
             bin/Release/net6.0/
             bin/Release/*.zip
-            !bin/Release/net6.0
-            /*.pdb
+            !bin/Release/net6.0/*.pdb
